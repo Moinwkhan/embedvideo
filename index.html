@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Video on Icon Click</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+      }
+      .video-icon {
+        font-size: 30px;
+        padding: 10px;
+        cursor: pointer;
+        color: white;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+      }
+      .video-frame {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .close-icon {
+        position: absolute;
+        top: 3%;
+        left: 105%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        cursor: pointer;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+      }
+      .image {
+        color: white;
+        padding: 130px 0px 0px 70px;
+        background: url("newimg4.jpg");
+        background-repeat: no-repeat;
+        height: 350px;
+        background-image: linear-gradient(100deg, #0000009a 30%, #ffffff00 100%),
+          url("newimg4.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+        overflow-x: hidden;
+      }
+      p {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+      }
+      button {
+        color: white;
+        border: none;
+        background-color: chocolate;
+        padding: 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image">
+      <h1>Transform Your Space, Effortlessly.</h1>
+      <p>Discover the Future of your Food</p>
+      <button>Get Started</button>
+      <div class="video-icon" onclick="showVideo()">▶</div>
+    </div>
+    <div id="videoContainer" class="video-frame">
+      <div class="close-icon" onclick="closeVideo()">✖</div>
+      <iframe
+        id="videoIframe"
+        width="560"
+        height="415"
+        src=""
+        data-src="https://www.youtube.com/embed/xPPLbEFbCAo?rel=0&modestbranding=1&controls=0&autoplay=1&loop=1&playlist=xPPLbEFbCAo&disablekb=1&showinfo=0&iv_load_policy=3&fs=0"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <script>
+      function showVideo() {
+        const videoContainer = document.getElementById("videoContainer");
+        const videoIframe = document.getElementById("videoIframe");
+        videoIframe.src = videoIframe.getAttribute("data-src");
+        videoContainer.style.display = "block";
+      }
+
+      function closeVideo() {
+        const videoContainer = document.getElementById("videoContainer");
+        const videoIframe = document.getElementById("videoIframe");
+        videoContainer.style.display = "none";
+        videoIframe.src = "";
+      }
+    </script>
+  </body>
+</html>
